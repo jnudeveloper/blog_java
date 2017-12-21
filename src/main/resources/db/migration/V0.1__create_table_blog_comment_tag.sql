@@ -19,8 +19,8 @@ CREATE TABLE `comment` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '评论编号',
     `post_id` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '文章编号',
     `parent_id` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '父评论编号',
-    `status` TINYINT NOT NULL DEFAULT 1 COMMENT '文章状态，0已删除 1有效',
-    `content` TEXT NOT NULL COMMENT '文章内容',
+    `status` TINYINT NOT NULL DEFAULT 1 COMMENT '评论状态，0已删除 1有效',
+    `content` TEXT NOT NULL COMMENT '评论内容',
     `create_time` INT NOT NULL DEFAULT 0 COMMENT '创建时间',
     `update_time` INT NOT NULL DEFAULT 0 COMMENT '更新时间',
     `author_id` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '评论人',
@@ -29,7 +29,7 @@ CREATE TABLE `comment` (
 ) ENGINE = MyISAM DEFAULT CHARSET = utf8 COMMENT '评论表';
 
 CREATE TABLE `tag` (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '评论编号',
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '标签编号',
     `name` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '标签名称',
     `frequency` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '标签引用数',
     `create_time` INT NOT NULL DEFAULT 0 COMMENT '创建时间',
