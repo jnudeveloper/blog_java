@@ -34,6 +34,7 @@ CREATE TABLE `tag` (
     `frequency` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '标签引用数',
     `create_time` INT NOT NULL DEFAULT 0 COMMENT '创建时间',
     `update_time` INT NOT NULL DEFAULT 0 COMMENT '更新时间',
+    `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态位，0失效 1有效',
     PRIMARY KEY(`id`)
 ) ENGINE = MyISAM DEFAULT CHARSET = utf8 COMMENT '标签表';
 
