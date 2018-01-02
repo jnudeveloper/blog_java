@@ -4,7 +4,7 @@ namespace php com.blog.domain
 struct Post {
     1: i32 id,
     2: string title,
-    3: string abstract,
+    3: string summary,
     4: string content,
     5: i8 status,
     6: i32 create_time,

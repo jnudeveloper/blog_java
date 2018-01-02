@@ -3,7 +3,7 @@ USE blog;
 CREATE TABLE `post`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '文章编号',
     `title` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '文章标题',
-    `abstract` VARCHAR(512) DEFAULT '' COMMENT '文章摘要',
+    `summary` VARCHAR(512) DEFAULT '' COMMENT '文章摘要',
     `content` TEXT NOT NULL COMMENT '文章内容',
     `status` TINYINT NOT NULL DEFAULT 1 COMMENT '文章状态，0已删除 1草稿 2已发布',
     `create_time` INT NOT NULL DEFAULT 0 COMMENT '创建时间',
