@@ -25,3 +25,6 @@ logs
 upload
 target
 tale.sql
+
+### thrift gen ###
+src/main/java/com/blog/thrift
