@@ -67,23 +67,32 @@ public class Server {
 //        new Thread(server).start();
 //    }
 
-    public void start(){
+    private void start(){
+        //加法
+        AdditionService.Processor additionProcessor = new AdditionService.Processor<>(new AdditionHandler());
+
+        //乘法
+        MultiplicationService.Processor multiplicationProcessor = new MultiplicationService.Processor<>(new MultiplicationHandler());
+
+        TMultiplexedProcessor processor = new TMultiplexedProcessor();
+        processor.registerProcessor("AdditionService", additionProcessor);
+        processor.registerProcessor("MultiplicationService", multiplicationProcessor);
+
+        Runnable server = new Runnable() {
+            public void run() {
+                startServer(processor);
+            }
+        };
+
+        new Thread(server).start();
+
+    }
+
+    private static void startServer(TMultiplexedProcessor processor){
         try{
             TServerSocket serverTransport = new TServerSocket(7911);
-
-            //加法
-            AdditionService.Processor additionProcessor = new AdditionService.Processor<>(new AdditionHandler());
-
-            //乘法
-            MultiplicationService.Processor multiplicationProcessor = new MultiplicationService.Processor<>(new MultiplicationHandler());
-
-            TMultiplexedProcessor processor = new TMultiplexedProcessor();
-            processor.registerProcessor("AdditionService", additionProcessor);
-            processor.registerProcessor("MultiplicationService", multiplicationProcessor);
-
             TServer server = new TThreadPoolServer(new TThreadPoolServer.Args(serverTransport).processor(processor));
-
-            System.out.println("Starting server on port 7911");
+            System.out.println("Starting server on port 7911...");
 
             server.serve();
 
