@@ -38,6 +38,7 @@ public class PostDAO {
             tPosts.add(tPost);
         }
 
+        System.out.println("success");
         return tPosts;
     }
 

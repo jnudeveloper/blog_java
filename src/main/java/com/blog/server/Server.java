@@ -1,6 +1,5 @@
 package com.blog.server;
 
-import com.blog.thrift.domain.Post;
 import com.blog.thrift.service.*;
 import org.apache.thrift.TException;
 import org.apache.thrift.TMultiplexedProcessor;
