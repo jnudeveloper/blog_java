@@ -1,62 +1,48 @@
 package com.blog.handler;
 
-import com.blog.thrift.domain.CUDResult;
-import com.blog.thrift.domain.Post;
-import com.blog.thrift.domain.Query;
-import com.blog.thrift.domain.Tag;
+import com.blog.domain.Post;
+import com.blog.domain.Query;
+import com.blog.thrift.domain.TCUDResult;
+import com.blog.thrift.domain.TPost;
+import com.blog.thrift.domain.TQuery;
+import com.blog.thrift.domain.TTag;
 import org.apache.thrift.TException;
 import com.blog.thrift.service.PostService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostHandler  implements PostService.Iface {
 
     @Override
-    public List<Post> find(Query query) throws TException {
-        System.out.println("where : " + query.where);
+    public List<TPost> find(TQuery tQuery) throws TException {
+        System.out.println("where : " + tQuery.where);
 
+        Query query = new Query(tQuery);
         Post post = new Post();
-        post.id = 1;
-        post.title = "title";
-        post.summary = "summary";
-        post.content = "content!";
-        post.status = 1;
-        post.create_time = 1515585420;
-        post.update_time = 1515585420;
-        post.author_id = 1;
-        post.approve_num = 0;
-        post.collect_num = 2;
-        post.comment_num = 3;
-
-        List<Post> posts = new ArrayList<>();
-        posts.add(post);
-
-        return posts;
+        return Post.format(post.find(query));
     }
 
     @Override
-    public CUDResult create(Post post) throws TException {
+    public TCUDResult create(TPost post) throws TException {
         return null;
     }
 
     @Override
-    public CUDResult deleteById(int id) throws TException {
+    public TCUDResult deleteById(int id) throws TException {
         return null;
     }
 
     @Override
-    public CUDResult update(Post post) throws TException {
+    public TCUDResult update(TPost post) throws TException {
         return null;
     }
 
     @Override
-    public CUDResult updateWithTags(Post post, List<Tag> tagList) throws TException {
+    public TCUDResult updateWithTags(TPost post, List<TTag> tagList) throws TException {
         return null;
     }
 
     @Override
-    public CUDResult createWithTags(Post post, List<Tag> tagList) throws TException {
+    public TCUDResult createWithTags(TPost post, List<TTag> tagList) throws TException {
         return null;
     }
 
