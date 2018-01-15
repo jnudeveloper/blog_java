@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 如果mapper.xml和mapper.java接口在同一个目录，此处也可不用定义mappers -->
+    <mappers>
+        <mapper resource="mapper/PostMapper.xml"/>
+    </mappers>
+</configuration>

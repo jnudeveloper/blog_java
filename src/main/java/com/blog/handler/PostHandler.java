@@ -22,6 +22,16 @@ public class PostHandler  implements PostService.Iface {
     }
 
     @Override
+    public List<TPost> findAll() throws TException {
+        return null;
+    }
+
+    @Override
+    public TPost findById(int id) throws TException {
+        return null;
+    }
+
+    @Override
     public TCUDResult create(TPost post) throws TException {
         return null;
     }

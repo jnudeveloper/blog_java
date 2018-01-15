@@ -19,28 +19,28 @@ public class PostDAO {
     private int collect_num;
     private int comment_num;
 
-    public static List<TPost> format(List<Post> posts){
-        List<TPost> tPosts= new ArrayList<>();
-        for(Post item : posts){
-            TPost tPost = new TPost();
-            tPost.id = item.getId();
-            tPost.title = item.getTitle();
-            tPost.summary = item.getSummary();
-            tPost.content = item.getContent();
-            tPost.status = item.getStatus();
-            tPost.create_time = item.getCreateTime();
-            tPost.update_time = item.getUpdateTime();
-            tPost.author_id = item.getAuthorId();
-            tPost.approve_num = item.getApproveNum();
-            tPost.collect_num = item.getCollectNum();
-            tPost.comment_num = item.getCommentNum();
-
-            tPosts.add(tPost);
-        }
-
-        System.out.println("success");
-        return tPosts;
-    }
+//    public static List<TPost> format(List<Post> posts){
+//        List<TPost> tPosts= new ArrayList<>();
+//        for(Post item : posts){
+//            TPost tPost = new TPost();
+//            tPost.id = item.getId();
+//            tPost.title = item.getTitle();
+//            tPost.summary = item.getSummary();
+//            tPost.content = item.getContent();
+//            tPost.status = item.getStatus();
+//            tPost.create_time = item.getCreateTime();
+//            tPost.update_time = item.getUpdateTime();
+//            tPost.author_id = item.getAuthorId();
+//            tPost.approve_num = item.getApproveNum();
+//            tPost.collect_num = item.getCollectNum();
+//            tPost.comment_num = item.getCommentNum();
+//
+//            tPosts.add(tPost);
+//        }
+//
+//        System.out.println("success");
+//        return tPosts;
+//    }
 
     public int getId() {
         return id;

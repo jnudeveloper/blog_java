@@ -1,5 +1,7 @@
 package com.blog.server;
 
+import com.blog.dao.PostMapper;
+import com.blog.domain.Post;
 import com.blog.thrift.service.*;
 import org.apache.thrift.TException;
 import org.apache.thrift.TMultiplexedProcessor;
@@ -9,6 +11,8 @@ import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TTransportException;
 import com.blog.thrift.service.PostService;
 import com.blog.handler.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Server {
 
@@ -54,7 +58,14 @@ public class Server {
     }
 
     public static void main(String args[]){
-        Server server = new Server();
-        server.start();
+        String springXML = "applicationContext.xml";
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(springXML);
+
+        PostMapper postMapper = (PostMapper) applicationContext.getBean("postMapper");
+        Post post = postMapper.findById(1);
+        System.out.println(post);
+
+//        Server server = new Server();
+//        server.start();
     }
 }
